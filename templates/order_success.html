@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+</head>
+<body>
+    <h1>Order Successful!</h1>
+    <h2>Order Details:</h2>
+    <ul>
+        {% for item in order_items %}
+        <li>
+            <p><strong>Item:</strong> {{ item[0] }}</p>
+            <p><strong>Price:</strong> ${{ item[1] }}</p>
+            <p><strong>Quantity:</strong> {{ item[2] }}</p>
+            <p><strong>Total:</strong> ${{ item[3] }}</p>
+            {% if item[4] %}
+            <p><strong>Special Instructions:</strong> {{ item[4] }}</p>
+            {% endif %}
+            {% set subtotal_float = item[5] | float %}
+            {% if subtotal_float %}
+            <p><strong>Subtotal:</strong> ${{ '%.2f'|format(subtotal_float) }}</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <p><strong>Total Price:</strong> ${{ latest_order.total_price }}</p>
+</body>
+</html>
