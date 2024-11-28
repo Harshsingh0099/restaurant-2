@@ -5,5 +5,5 @@ Place Order: Users can place an order by providing their name, table number, and
 Order Confirmation: Displays the latest order details, including itemized breakdown and total amount.
 Requirements
 Python: Make sure you have Python 3.x installed.
-MySQL: MySQL server must be installed and running.
+MySQL: MySQL server must be installed and running.(Workbench, CLI)
 Python Packages: mysql-connector
